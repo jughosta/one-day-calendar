@@ -1,0 +1,161 @@
+/* Common style with simple css-reset */
+
+body {
+	font-family: tahoma, sans-serif;
+	font-weight: bold;
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
+}
+
+/* Header */
+
+#cvHeaderContainer {
+
+}
+
+#cvHeaderContainer > #cvHeader {
+	width: 100%;
+	height: 10px;
+	border-radius: 0 0 2px 2px;
+	background: rgb(187, 229, 53);
+}
+
+#cvHeaderContainer > #cvHeaderText {
+	vertical-align: middle;
+	font-weight: bold;
+	font-size: 16px;
+	color: #000000;
+    padding: 30px 10px 0 10px;
+}
+
+#cvHeaderContainer > #cvHeaderText > #cvHeaderSubText {
+    font-size: 12px;
+    color: #686868;
+    text-decoration: underline;
+    float: right;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+/* Calendar Container */
+
+.no-js #cvCalendarContainer {
+	display: none;
+}
+
+#cvCalendarContainer {
+	margin-top: 50px;
+	height: 750px;
+	width: 726px;
+}
+
+#cvCalendarContainer > .calendarContainerColumn {
+	float: left;
+	display: inline-block;
+}
+
+/* Calendar Container: Left column with times */
+
+#cvCalendarContainer > #cvCalendarContainerLeftColumn {
+	text-align: right;
+	width: 106px;
+}
+
+#cvCalendarContainer > #cvCalendarContainerLeftColumn > #cvCalendarTimeContainer {
+
+}
+
+/* Calendar Time Container */
+
+#cvCalendarTimeContainer > .calendarTimeBlock {
+	margin-right: 7px;
+}
+
+#cvCalendarTimeContainer .calendarTimeHour,
+#cvCalendarTimeContainer .calendarTimeMidHour {
+	height: 30px;
+	line-height: 30px;
+}
+
+#cvCalendarTimeContainer .calendarTimeHour {
+	font-size: 12px;
+	font-weight: bold;
+	color: #686868;
+}
+
+#cvCalendarTimeContainer .calendarTimeMidHour,
+#cvCalendarTimeContainer .calendarTimePeriod {
+	font-size: 10px;
+	font-weight: normal;
+	color: #A7A7A7;
+}
+
+#cvCalendarTimeContainer .calendarTimePeriod {
+	text-transform: uppercase;
+}
+
+/* Calendar Container: Right column with events  */
+
+#cvCalendarContainer > #cvCalendarContainerRightColumn {
+	width: 620px;
+	text-align: left;
+	margin-top: 15px;
+}
+
+#cvCalendarContainer > #cvCalendarContainerRightColumn > #cvCalendarEventsContainer {
+	height: 720px;
+	width: 100%;
+	background: #ECECEC;
+	position: relative;
+	border-left: 1px solid #D6D6D6;
+}
+
+/* Calendar Events Container */
+
+#cvCalendarEventsContainer > .calendarEventBlock {
+	position: absolute;
+	background: rgb(187, 229, 53);
+}
+
+#cvCalendarEventsContainer .calendarEvent {
+	border: 1px solid #D6D6D6;
+	margin: 0 0 0 4px;
+	border-left: none;
+	height: 100%;
+	background: #ffffff;
+	overflow: hidden;
+}
+
+#cvCalendarEventsContainer .calendarEvent .calendarEventData {
+	margin-left: 9px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+#cvCalendarEventsContainer .calendarEvent .calendarEventTitle.calendarEventData  {
+	margin-top: 5px;
+	font-size: 12px;
+	color: #000000;
+}
+
+#cvCalendarEventsContainer .calendarEvent .calendarEventLocation.calendarEventData {
+	font-size: 10px;
+	font-weight: normal;
+	color: #797979;
+}
+
+#cvCalendarEventsContainer .calendarEvent.shortestEvent {
+	background: rgb(187, 229, 53);
+	border: none;
+	height: 100% !important;
+}
+
+#cvCalendarEventsContainer .calendarEvent.shorterEvent .calendarEventData {
+	display: none;
+}
+
+#cvCalendarEventsContainer .calendarEvent.shortEvent .calendarEventLocation {
+	display: none;
+}

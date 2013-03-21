@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>One Day Calendar</title>
+    <!-- One day calendar view for scheduling and display events -->
+	<link rel="stylesheet" type="text/css" href="css/calendar-style.css"/>
+</head>
+<body>
+	<div id="cvHeaderContainer">
+		<div id="cvHeader"></div>
+        <div id="cvHeaderText">One Day Calendar<span id="cvHeaderSubText">Schedule another day!</span></div>
+	</div>
+
+	<div id="cvCalendarContainer">
+		<div id="cvCalendarContainerLeftColumn" class="calendarContainerColumn">
+			<div id="cvCalendarTimeContainer">
+
+			</div>
+		</div>
+		<div id="cvCalendarContainerRightColumn" class="calendarContainerColumn">
+			<div id="cvCalendarEventsContainer">
+
+			</div>
+		</div>
+	</div>
+
+	<script src="src/cv-calendar-scheduler.js"></script>
+	<script src="src/cv-calendar-time.js"></script>
+	<script src="src/cv-calendar-template.js"></script>
+
+	<script>
+
+    (function (calendarViewNS, maxEventsCount, maxEventEndTime) {
+
+        function scheduleAndDisplayEventsOfDay (randomEvents) {
+            if (calendarViewNS && calendarViewNS.scheduler && calendarViewNS.layoutBuilder && calendarViewNS.timesSet) {
+
+                // add times to DOM
+                calendarViewNS.layoutBuilder.updateTimesContainer(calendarViewNS.timesSet);
+
+                // output events
+                var scheduledEvents = calendarViewNS.scheduleEvents(randomEvents);
+
+                // add events to DOM
+                calendarViewNS.layoutBuilder.updateEventsContainer(scheduledEvents);
+
+                document.documentElement.className = document.documentElement.className.replace("no-js", "");
+            }
+        }
+
+        // input data for test calendar view
+        var events = [
+                {"id": 0, "start": 39, "end": 291},
+                {"id": 1, "start": 248, "end": 315},
+                {"id": 2, "start": 575, "end": 711},
+                {"id": 3, "start": 10, "end": 38},
+                {"id": 4, "start": 536, "end": 701},
+                {"id": 5, "start": 623, "end": 716},
+                {"id": 6, "start": 175, "end": 561},
+                {"id": 7, "start": 297, "end": 457},
+                {"id": 8, "start": 619, "end": 691}
+            ],
+            button = document.getElementById('cvHeaderSubText');
+
+        scheduleAndDisplayEventsOfDay(events);
+
+        function generateRandomEvents () {
+            var events = [],
+                    event,
+                    count = Math.round(Math.random() * maxEventsCount);
+            for (var i = 0; i < count; i++) {
+                event = {
+                    id: i,
+                    start: Math.floor(Math.random() * maxEventEndTime)
+                };
+                event.end = event.start + Math.floor(Math.random() * (maxEventEndTime - event.start));
+                events.push(event);
+            }
+            return events;
+        }
+
+        if (!button) {
+            return;
+        }
+        button.addEventListener('click', function () {
+            scheduleAndDisplayEventsOfDay(generateRandomEvents());
+        });
+
+    })(calendarView, 20, 720);
+
+	</script>
+</body>
+</html>
