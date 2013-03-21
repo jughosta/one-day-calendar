@@ -14,19 +14,19 @@ Input data: events array
 var events = [
   {
     /**
-      @type {Number}
+    * @type {Number}
     */
-    id: <id>,
+    id: 0,
     
     /**
-      @type {Number} time in minuts from 0
+    * @type {Number} time in minuts from 0
     */
-    start: <time>,
+    start: 60, // 10am
     
     /**
-      @type {Number} time in minuts from 0
+    * @type {Number} time in minuts from 0
     */
-    end: <time>
+    end: 120 // 11am
   } /*, other events*/
 ];
 ```
