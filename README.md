@@ -31,4 +31,4 @@ var events = [
 ];
 ```
 
-Demo: http://juliarechkunova.github.com/one-day-calendar/
+Demo: http://jughosta.github.com/one-day-calendar/
